@@ -1,4 +1,4 @@
-# Projektarbete-Intake-Backend
+# Intake (Projektarbete, Backend)
 
 ### Applikationen
 Applikationen bedriver ett Web API med en *in-memory* databas.
