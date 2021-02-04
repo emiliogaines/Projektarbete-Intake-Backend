@@ -21,21 +21,20 @@ namespace Projektarbete_Intake_Backend.HTTP
             string searchQuery = foodApi + query;
             try
             {
-                //We will now define your HttpClient with your first using statement which will use a IDisposable.
+                // Using HttpClient to make call
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Add("x-app-id", appId);
                     client.DefaultRequestHeaders.Add("x-app-key", appKey);
-                    //In the next using statement you will initiate the Get Request, use the await keyword so it will execute the using statement in order.
-                    //The HttpResponseMessage which contains status code, and data from response.
+
+                    // Fetching data
                     using (HttpResponseMessage res = await client.GetAsync(searchQuery))
                     {
                         
-
-                        //Then get the data or content from the response in the next using statement, then within it you will get the data, and convert it to a c# object.
+                        // Getting data from response
                         using (HttpContent content = res.Content)
                         {
-                            //Now assign your content to your data variable, by converting into a string using the await keyword.
+                            // Convert to string and return
                             return await content.ReadAsStringAsync();
                         }
                     }
